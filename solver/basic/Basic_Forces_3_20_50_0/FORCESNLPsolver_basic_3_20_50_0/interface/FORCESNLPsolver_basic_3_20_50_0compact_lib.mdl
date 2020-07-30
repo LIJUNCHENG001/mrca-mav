@@ -1,5 +1,5 @@
 Model {
-  Name			  "FORCESNLPsolver_basic_5_20_50"
+  Name			  "FORCESNLPsolver_basic_3_20_50_0"
   Version		  8.0
   MdlSubVersion		  0
   GraphicalInterface {
@@ -60,13 +60,13 @@ Model {
       }
     }
   }
-  Created		  "7/30/2020 6:19:30 AM"
+  Created		  "7/30/2020 8:00:51 AM"
   Creator		  "embotech AG"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "embotech AG"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "7/30/2020 6:19:30 AM"
+  LastModifiedDate	  "7/30/2020 8:00:51 AM"
   RTWModifiedTimeStamp	  315310195
   ModelVersionFormat	  "1.%<AutoIncrement:2>"
   ConfigurationManager	  "None"
@@ -747,7 +747,7 @@ Model {
     }
   }
   System {
-    Name		    "FORCESNLPsolver_basic_5_20_50"
+    Name		    "FORCESNLPsolver_basic_3_20_50_0"
     Location		    [385, 84, 1201, 623]
     Open		    on
     ModelBrowserVisibility  on
@@ -765,21 +765,21 @@ Model {
     SIDHighWatermark	    "1"
     Block {
       BlockType		      S-Function
-      Name		      "FORCESNLPsolver_basic_5_20_50"
+      Name		      "FORCESNLPsolver_basic_3_20_50_0"
       SID		      "1"
       Ports		      [3, 1]
       Position		      [170, 99, 650, 180]
       ZOrder		      1
-      FunctionName	      "FORCESNLPsolver_basic_5_20_50_simulinkBlockcompact"
-	  SFunctionModules	      "FORCESNLPsolver_basic_5_20_50 FORCESNLPsolver_basic_5_20_50_simulinkBlockcompact"
+      FunctionName	      "FORCESNLPsolver_basic_3_20_50_0_simulinkBlockcompact"
+	  SFunctionModules	      "FORCESNLPsolver_basic_3_20_50_0 FORCESNLPsolver_basic_3_20_50_0_simulinkBlockcompact"
       EnableBusSupport	      off
       Object {
 	$PropName		"MaskObject"
 	$ObjectID		19
 	$ClassName		"Simulink.Mask"
-	Type			"FORCESNLPsolver_basic_5_20_50_simulinkBlockcompact"
-	Description		" ---- Simulink block encapsulating your customized solver FORCESNLPsolver_basic_5_20_50 ---- \n\n"
-				"FORCESNLPsolver_basic_5_20_50 : A fast customized optimization solver.\n"
+	Type			"FORCESNLPsolver_basic_3_20_50_0_simulinkBlockcompact"
+	Description		" ---- Simulink block encapsulating your customized solver FORCESNLPsolver_basic_3_20_50_0 ---- \n\n"
+				"FORCESNLPsolver_basic_3_20_50_0 : A fast customized optimization solver.\n"
 "\n"
 "Copyright (C) 2013-2020 EMBOTECH AG [info@embotech.com]. All rights reserved.\n"
 "\n"
@@ -801,12 +801,12 @@ Model {
 "jurisdiction in case of any dispute.\n"
 "\n"
 
-	Help			"FORCESNLPsolver_basic_5_20_50_simulinkBlockcompact provides an easy Simulink interface for simulating your customized solver.  \n"
-	"\nOUTPUTS = FORCESNLPsolver_basic_5_20_50(INPUTS) solves an optimization problem where:\n\n"
+	Help			"FORCESNLPsolver_basic_3_20_50_0_simulinkBlockcompact provides an easy Simulink interface for simulating your customized solver.  \n"
+	"\nOUTPUTS = FORCESNLPsolver_basic_3_20_50_0(INPUTS) solves an optimization problem where:\n\n"
 	"INPUTS:\n"
 	" - xinit - column vector of length 9\n "
 " - x0 - column vector of length 300\n "
-" - all_parameters - column vector of length 1160\n "
+" - all_parameters - column vector of length 840\n "
 
 	"\nOUTPUTS:\n"
 	" - outputs - column vector of length 300\n "
@@ -817,7 +817,7 @@ Model {
 "port_label('input', 2, 'x0') \n  "
 "port_label('input', 3, 'all_parameters') \n  "
 "port_label('output', 1, 'outputs') \n "
-"if( exist('FORCES_PRO_Logo.jpg','file') ), image(imread('FORCES_PRO_Logo.jpg'),'center','on'); elseif( exist(['interface',filesep,'FORCES_PRO_Logo.jpg'],'file') ), image(imread(['interface',filesep,'FORCES_PRO_Logo.jpg']),'center','on'); elseif( exist(['FORCESNLPsolver_basic_5_20_50',filesep,'interface',filesep,'FORCES_PRO_Logo.jpg'],'file') ), image(imread(['FORCESNLPsolver_basic_5_20_50',filesep,'interface',filesep,'FORCES_PRO_Logo.jpg']),'center','on'); end \n "
+"if( exist('FORCES_PRO_Logo.jpg','file') ), image(imread('FORCES_PRO_Logo.jpg'),'center','on'); elseif( exist(['interface',filesep,'FORCES_PRO_Logo.jpg'],'file') ), image(imread(['interface',filesep,'FORCES_PRO_Logo.jpg']),'center','on'); elseif( exist(['FORCESNLPsolver_basic_3_20_50_0',filesep,'interface',filesep,'FORCES_PRO_Logo.jpg'],'file') ), image(imread(['FORCESNLPsolver_basic_3_20_50_0',filesep,'interface',filesep,'FORCES_PRO_Logo.jpg']),'center','on'); end \n "
 
       }
     }

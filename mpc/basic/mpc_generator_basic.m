@@ -82,8 +82,8 @@ model.ub(index.z.inputs) = [ pr.input.maxRoll,  pr.input.maxPitch, ...
 model.lb(index.z.slack) = [   0,    0];
 model.ub(index.z.slack) = [+inf, +inf];
 % position is not really hardly constrained (later softly constrained with slacks)
-model.lb(index.z.pos) = [-inf, -inf, -inf];
-model.ub(index.z.pos) = [+inf, +inf, +inf];
+model.lb(index.z.pos) = [-inf, -inf, 1.19];
+model.ub(index.z.pos) = [+inf, +inf, 1.21];
 % velocity is hardly constrained
 model.lb(index.z.vel) = [-pr.state.maxVx, -pr.state.maxVy, -pr.state.maxVz];
 model.ub(index.z.vel) = [ pr.state.maxVx,  pr.state.maxVy,  pr.state.maxVz];
@@ -107,7 +107,7 @@ model.xinitidx = [index.z.pos, index.z.vel, index.z.euler];
 
 %% Define solver options
 solver_name = strcat('FORCESNLPsolver_basic_', num2str(model.nObs), '_', ...
-    num2str(model.N), '_', num2str(1000*model.dt));
+    num2str(model.N), '_', num2str(1000*model.dt), '_', num2str(cfg.modeCoor));
 codeoptions = getOptions(solver_name);
 % codeoptions.platform    = 'Generic';% target platform
 codeoptions.maxit       = 500;      % maximum number of iterations
@@ -151,7 +151,7 @@ fprintf('[%s] FORCES solver generated OK \n',datestr(now,'HH:MM:SS'));
 %% Storing the solver
 % create a folder
 folder_name = ['./solver/basic', '/Basic_Forces_', num2str(model.nObs), '_', ...
-    num2str(model.N), '_', num2str(1000*model.dt)];
+    num2str(model.N), '_', num2str(1000*model.dt), '_', num2str(cfg.modeCoor)];
 mkdir(folder_name);
 % delete it and create again to remove all files in the folder
 rmdir(folder_name, 's');

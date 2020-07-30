@@ -1,5 +1,5 @@
 /*
-FORCESNLPsolver_basic_5_20_50 : A fast customized optimization solver.
+FORCESNLPsolver_basic_3_20_50_0 : A fast customized optimization solver.
 
 Copyright (C) 2013-2020 EMBOTECH AG [info@embotech.com]. All rights reserved.
 
@@ -24,14 +24,14 @@ jurisdiction in case of any dispute.
 
 
 #define S_FUNCTION_LEVEL 2
-#define S_FUNCTION_NAME FORCESNLPsolver_basic_5_20_50_simulinkBlock
+#define S_FUNCTION_NAME FORCESNLPsolver_basic_3_20_50_0_simulinkBlock
 
 #include "simstruc.h"
 
 
 
 /* include FORCES functions and defs */
-#include "../include/FORCESNLPsolver_basic_5_20_50.h" 
+#include "../include/FORCESNLPsolver_basic_3_20_50_0.h" 
 
 /* SYSTEM INCLUDES FOR TIMING ------------------------------------------ */
 
@@ -43,10 +43,10 @@ jurisdiction in case of any dispute.
 #include "rtwtypes.h"
 #endif
 
-typedef FORCESNLPsolver_basic_5_20_50interface_float FORCESNLPsolver_basic_5_20_50nmpc_float;
+typedef FORCESNLPsolver_basic_3_20_50_0interface_float FORCESNLPsolver_basic_3_20_50_0nmpc_float;
 
-extern void FORCESNLPsolver_basic_5_20_50_casadi2forces(double *x, double *y, double *l, double *p, double *f, double *nabla_f, double *c, double *nabla_c, double *h, double *nabla_h, double *hess, solver_int32_default stage, solver_int32_default iteration);
-FORCESNLPsolver_basic_5_20_50_extfunc pt2function_FORCESNLPsolver_basic_5_20_50 = &FORCESNLPsolver_basic_5_20_50_casadi2forces;
+extern void FORCESNLPsolver_basic_3_20_50_0_casadi2forces(double *x, double *y, double *l, double *p, double *f, double *nabla_f, double *c, double *nabla_c, double *h, double *nabla_h, double *hess, solver_int32_default stage, solver_int32_default iteration);
+FORCESNLPsolver_basic_3_20_50_0_extfunc pt2function_FORCESNLPsolver_basic_3_20_50_0 = &FORCESNLPsolver_basic_3_20_50_0_casadi2forces;
 
 
 
@@ -89,7 +89,7 @@ static void mdlInitializeSizes(SimStruct *S)
     ssSetInputPortDirectFeedThrough(S, 1, 1); /* Feedthrough enabled */
     ssSetInputPortRequiredContiguous(S, 1, 1); /*direct input signal access*/	
 	/* Input Port 2 */
-    ssSetInputPortMatrixDimensions(S,  2, 1160, 1);
+    ssSetInputPortMatrixDimensions(S,  2, 840, 1);
     ssSetInputPortDataType(S, 2, SS_DOUBLE);
     ssSetInputPortComplexSignal(S, 2, COMPLEX_NO); /* no complex signals suppported */
     ssSetInputPortDirectFeedThrough(S, 2, 1); /* Feedthrough enabled */
@@ -317,9 +317,9 @@ static void mdlOutputs(SimStruct *S, int_T tid)
 	
 
 	/* Solver data */
-	static FORCESNLPsolver_basic_5_20_50_params params;
-	static FORCESNLPsolver_basic_5_20_50_output output;
-	static FORCESNLPsolver_basic_5_20_50_info info;	
+	static FORCESNLPsolver_basic_3_20_50_0_params params;
+	static FORCESNLPsolver_basic_3_20_50_0_output output;
+	static FORCESNLPsolver_basic_3_20_50_0_info info;	
 	solver_int32_default exitflag;
 
 	/* Extra NMPC data */
@@ -336,7 +336,7 @@ static void mdlOutputs(SimStruct *S, int_T tid)
 		params.x0[i] = (double) x0[i]; 
 	}
 
-	for( i=0; i<1160; i++)
+	for( i=0; i<840; i++)
 	{ 
 		params.all_parameters[i] = (double) all_parameters[i]; 
 	}
@@ -345,7 +345,7 @@ static void mdlOutputs(SimStruct *S, int_T tid)
 
 	
 
-    #if SET_PRINTLEVEL_FORCESNLPsolver_basic_5_20_50 > 0
+    #if SET_PRINTLEVEL_FORCESNLPsolver_basic_3_20_50_0 > 0
 		/* Prepare file for printfs */
         fp = fopen("stdout_temp","w+");
 		if( fp == NULL ) 
@@ -356,9 +356,9 @@ static void mdlOutputs(SimStruct *S, int_T tid)
 	#endif
 
 	/* Call solver */
-	exitflag = FORCESNLPsolver_basic_5_20_50_solve(&params, &output, &info, fp , pt2function_FORCESNLPsolver_basic_5_20_50);
+	exitflag = FORCESNLPsolver_basic_3_20_50_0_solve(&params, &output, &info, fp , pt2function_FORCESNLPsolver_basic_3_20_50_0);
 
-	#if SET_PRINTLEVEL_FORCESNLPsolver_basic_5_20_50 > 0
+	#if SET_PRINTLEVEL_FORCESNLPsolver_basic_3_20_50_0 > 0
 		/* Read contents of printfs printed to file */
 		rewind(fp);
 		while( (i = fgetc(fp)) != EOF ) 

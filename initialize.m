@@ -14,7 +14,7 @@ quad_ID = [4, 3, 2, 1, 5:100];  % ID of the real drones used for experiments
 
 %% Load problem setup
 nQuad   = 4;            % number of quadrotors
-nDynObs = 2;            % number of moving obstacles
+nDynObs = 0;            % number of moving obstacles
 % three global variables are defined: pr, model, index
 if strcmp(application, 'basic')
     basic_setup;        % basic multi-mav collision avoidance, slack is used
@@ -35,7 +35,7 @@ end
 cfg.application         =   application;
 cfg.modeSim             =   1;              % 0 - experiment
                                             % 1 - simple simulation mode
-cfg.modeCoor            =   0;              % -1 - sequential prioritized planning
+cfg.modeCoor            =   1;              % -1 - sequential prioritized planning
                                             % 0 - sequential planning (centralized)
                                             % 1 - with path communication (distributed)
                                             % 2 - path prediction based on constant v (decentralized)

@@ -1,5 +1,5 @@
 /*
-FORCESNLPsolver_basic_5_20_50 : A fast customized optimization solver.
+FORCESNLPsolver_basic_3_20_50_0 : A fast customized optimization solver.
 
 Copyright (C) 2013-2020 EMBOTECH AG [info@embotech.com]. All rights reserved.
 
@@ -24,7 +24,7 @@ jurisdiction in case of any dispute.
 
 #include "mex.h"
 #include "math.h"
-#include "../include/FORCESNLPsolver_basic_5_20_50.h"
+#include "../include/FORCESNLPsolver_basic_3_20_50_0.h"
 #ifndef SOLVER_STDIO_H
 #define SOLVER_STDIO_H
 #include <stdio.h>
@@ -56,14 +56,14 @@ void copyMValueToC_double(double * src, double * dest)
 
 
 
-extern void FORCESNLPsolver_basic_5_20_50_casadi2forces(FORCESNLPsolver_basic_5_20_50_float *x, FORCESNLPsolver_basic_5_20_50_float *y, FORCESNLPsolver_basic_5_20_50_float *l, FORCESNLPsolver_basic_5_20_50_float *p, FORCESNLPsolver_basic_5_20_50_float *f, FORCESNLPsolver_basic_5_20_50_float *nabla_f, FORCESNLPsolver_basic_5_20_50_float *c, FORCESNLPsolver_basic_5_20_50_float *nabla_c, FORCESNLPsolver_basic_5_20_50_float *h, FORCESNLPsolver_basic_5_20_50_float *nabla_h, FORCESNLPsolver_basic_5_20_50_float *hess, solver_int32_default stage, solver_int32_default iteration);
-FORCESNLPsolver_basic_5_20_50_extfunc pt2function_FORCESNLPsolver_basic_5_20_50 = &FORCESNLPsolver_basic_5_20_50_casadi2forces;
+extern void FORCESNLPsolver_basic_3_20_50_0_casadi2forces(FORCESNLPsolver_basic_3_20_50_0_float *x, FORCESNLPsolver_basic_3_20_50_0_float *y, FORCESNLPsolver_basic_3_20_50_0_float *l, FORCESNLPsolver_basic_3_20_50_0_float *p, FORCESNLPsolver_basic_3_20_50_0_float *f, FORCESNLPsolver_basic_3_20_50_0_float *nabla_f, FORCESNLPsolver_basic_3_20_50_0_float *c, FORCESNLPsolver_basic_3_20_50_0_float *nabla_c, FORCESNLPsolver_basic_3_20_50_0_float *h, FORCESNLPsolver_basic_3_20_50_0_float *nabla_h, FORCESNLPsolver_basic_3_20_50_0_float *hess, solver_int32_default stage, solver_int32_default iteration);
+FORCESNLPsolver_basic_3_20_50_0_extfunc pt2function_FORCESNLPsolver_basic_3_20_50_0 = &FORCESNLPsolver_basic_3_20_50_0_casadi2forces;
 
 
 /* Some memory for mex-function */
-static FORCESNLPsolver_basic_5_20_50_params params;
-static FORCESNLPsolver_basic_5_20_50_output output;
-static FORCESNLPsolver_basic_5_20_50_info info;
+static FORCESNLPsolver_basic_3_20_50_0_params params;
+static FORCESNLPsolver_basic_3_20_50_0_output output;
+static FORCESNLPsolver_basic_3_20_50_0_info info;
 
 /* THE mex-function */
 void mexFunction( solver_int32_default nlhs, mxArray *plhs[], solver_int32_default nrhs, const mxArray *prhs[] )  
@@ -85,11 +85,11 @@ void mexFunction( solver_int32_default nlhs, mxArray *plhs[], solver_int32_defau
 	/* Check for proper number of arguments */
     if (nrhs != 1) 
 	{
-        mexErrMsgTxt("This function requires exactly 1 input: PARAMS struct.\nType 'help FORCESNLPsolver_basic_5_20_50_mex' for details.");
+        mexErrMsgTxt("This function requires exactly 1 input: PARAMS struct.\nType 'help FORCESNLPsolver_basic_3_20_50_0_mex' for details.");
     }    
 	if (nlhs > 3) 
 	{
-        mexErrMsgTxt("This function returns at most 3 outputs.\nType 'help FORCESNLPsolver_basic_5_20_50_mex' for details.");
+        mexErrMsgTxt("This function returns at most 3 outputs.\nType 'help FORCESNLPsolver_basic_3_20_50_0_mex' for details.");
     }
 
 	/* Check whether params is actually a structure */
@@ -149,19 +149,19 @@ void mexFunction( solver_int32_default nlhs, mxArray *plhs[], solver_int32_defau
     {
     mexErrMsgTxt("PARAMS.all_parameters must be a double.");
     }
-    if( mxGetM(par) != 1160 || mxGetN(par) != 1 ) 
+    if( mxGetM(par) != 840 || mxGetN(par) != 1 ) 
 	{
-    mexErrMsgTxt("PARAMS.all_parameters must be of size [1160 x 1]");
+    mexErrMsgTxt("PARAMS.all_parameters must be of size [840 x 1]");
     }
 #endif	 
 	if ( (mxGetN(par) != 0) && (mxGetM(par) != 0) )
 	{
-		copyMArrayToC_double(mxGetPr(par), params.all_parameters,1160);
+		copyMArrayToC_double(mxGetPr(par), params.all_parameters,840);
 
 	}
 
 
-	#if SET_PRINTLEVEL_FORCESNLPsolver_basic_5_20_50 > 0
+	#if SET_PRINTLEVEL_FORCESNLPsolver_basic_3_20_50_0 > 0
 		/* Prepare file for printfs */
         fp = fopen("stdout_temp","w+");
 		if( fp == NULL ) 
@@ -172,9 +172,9 @@ void mexFunction( solver_int32_default nlhs, mxArray *plhs[], solver_int32_defau
 	#endif
 
 	/* call solver */
-	exitflag = FORCESNLPsolver_basic_5_20_50_solve(&params, &output, &info, fp, pt2function_FORCESNLPsolver_basic_5_20_50);
+	exitflag = FORCESNLPsolver_basic_3_20_50_0_solve(&params, &output, &info, fp, pt2function_FORCESNLPsolver_basic_3_20_50_0);
 	
-	#if SET_PRINTLEVEL_FORCESNLPsolver_basic_5_20_50 > 0
+	#if SET_PRINTLEVEL_FORCESNLPsolver_basic_3_20_50_0 > 0
 		/* Read contents of printfs printed to file */
 		rewind(fp);
 		while( (i = fgetc(fp)) != EOF ) 

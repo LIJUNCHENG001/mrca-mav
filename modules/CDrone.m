@@ -547,7 +547,7 @@ classdef CDrone < handle
            % call the NLP solver
            func_name = strcat('FORCESNLPsolver_', obj.cfg_.application, '_', ...
                num2str(obj.nQuad_ + obj.nDynObs_ - 1), '_', ...
-               num2str(obj.N_), '_', num2str(1000*obj.dt_));
+               num2str(obj.N_), '_', num2str(1000*obj.dt_), '_', num2str(obj.cfg_.modeCoor));
            NLPSolver = str2func(func_name);
            [output, exitflag, info] = NLPSolver(problem);
            

@@ -203,9 +203,9 @@ static void mdlOutputs(SimStruct *S, int_T tid)
 	
 
 	/* Solver data */
-	FORCESNLPsolver_basic_5_20_50_params params;
-	FORCESNLPsolver_basic_5_20_50_output output;
-	FORCESNLPsolver_basic_5_20_50_info info;	
+	static FORCESNLPsolver_basic_5_20_50_params params;
+	static FORCESNLPsolver_basic_5_20_50_output output;
+	static FORCESNLPsolver_basic_5_20_50_info info;	
 	solver_int32_default exitflag;
 
 	/* Extra NMPC data */
